@@ -27,6 +27,11 @@
 		BAEBCC00257313B500139F93 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCBFF257313B500139F93 /* EventListViewModel.swift */; };
 		BAEBCC062573188500139F93 /* AddEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC052573188500139F93 /* AddEventViewModel.swift */; };
 		BAEBCC09257318B200139F93 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC08257318B200139F93 /* AddEventViewController.swift */; };
+		BAEBCC0D25732FA900139F93 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC0C25732FA900139F93 /* UIView+Extensions.swift */; };
+		BAEBCC102573324300139F93 /* TitleSubtitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC0F2573324300139F93 /* TitleSubtitleCell.swift */; };
+		BAEBCC1325733A3200139F93 /* TitleSubtitleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC1225733A3200139F93 /* TitleSubtitleCellViewModel.swift */; };
+		BAEBCC202573446200139F93 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC1F2573446200139F93 /* Protocols.swift */; };
+		BAEBCC262573733B00139F93 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC252573733B00139F93 /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +57,11 @@
 		BAEBCBFF257313B500139F93 /* EventListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
 		BAEBCC052573188500139F93 /* AddEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewModel.swift; sourceTree = "<group>"; };
 		BAEBCC08257318B200139F93 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		BAEBCC0C25732FA900139F93 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		BAEBCC0F2573324300139F93 /* TitleSubtitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleCell.swift; sourceTree = "<group>"; };
+		BAEBCC1225733A3200139F93 /* TitleSubtitleCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleCellViewModel.swift; sourceTree = "<group>"; };
+		BAEBCC1F2573446200139F93 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		BAEBCC252573733B00139F93 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				BAEBCBBF2572FBEC00139F93 /* AppDelegate.swift */,
+				BAEBCC1E2573445500139F93 /* Protocols */,
 				BAEBCBD42572FD4B00139F93 /* Views */,
 				BAEBCBC12572FBEC00139F93 /* SceneDelegate.swift */,
 				BAEBCBFE257313A800139F93 /* ViewModels */,
@@ -105,6 +116,7 @@
 		BAEBCBD42572FD4B00139F93 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BAEBCC23257344CD00139F93 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +147,8 @@
 			children = (
 				BAEBCBEB257306A800139F93 /* UIViewController+Extension.swift */,
 				BAEBCBEE2573091700139F93 /* UIColor+Extension.swift */,
+				BAEBCC0C25732FA900139F93 /* UIView+Extensions.swift */,
+				BAEBCC252573733B00139F93 /* Date+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -161,8 +175,25 @@
 			children = (
 				BAEBCBFF257313B500139F93 /* EventListViewModel.swift */,
 				BAEBCC052573188500139F93 /* AddEventViewModel.swift */,
+				BAEBCC1225733A3200139F93 /* TitleSubtitleCellViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BAEBCC1E2573445500139F93 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				BAEBCC1F2573446200139F93 /* Protocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BAEBCC23257344CD00139F93 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BAEBCC0F2573324300139F93 /* TitleSubtitleCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +267,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAEBCBD62572FD6200139F93 /* AppCoordinator.swift in Sources */,
+				BAEBCC262573733B00139F93 /* Date+Extensions.swift in Sources */,
 				BAEBCBE32573051A00139F93 /* EditEventCoordinator.swift in Sources */,
 				BAEBCC09257318B200139F93 /* AddEventViewController.swift in Sources */,
 				BAEBCBE22573051A00139F93 /* AddEventCoordinator.swift in Sources */,
@@ -244,9 +276,13 @@
 				BAEBCBF425730C6400139F93 /* EventsApp.xcdatamodeld in Sources */,
 				BAEBCBC42572FBEC00139F93 /* ViewController.swift in Sources */,
 				BAEBCBE7257305F400139F93 /* EventListViewController.swift in Sources */,
+				BAEBCC202573446200139F93 /* Protocols.swift in Sources */,
+				BAEBCC102573324300139F93 /* TitleSubtitleCell.swift in Sources */,
 				BAEBCBF825730CF900139F93 /* CoreDataManager.swift in Sources */,
 				BAEBCC062573188500139F93 /* AddEventViewModel.swift in Sources */,
 				BAEBCBC02572FBEC00139F93 /* AppDelegate.swift in Sources */,
+				BAEBCC0D25732FA900139F93 /* UIView+Extensions.swift in Sources */,
+				BAEBCC1325733A3200139F93 /* TitleSubtitleCellViewModel.swift in Sources */,
 				BAEBCC00257313B500139F93 /* EventListViewModel.swift in Sources */,
 				BAEBCBC22572FBEC00139F93 /* SceneDelegate.swift in Sources */,
 				BAEBCBE12573051A00139F93 /* EventDetailCoordinator.swift in Sources */,

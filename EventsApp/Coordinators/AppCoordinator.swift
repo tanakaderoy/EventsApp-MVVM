@@ -7,15 +7,6 @@
 
 import UIKit
 
-protocol Coordinator: class {
-    var childCordinators: [Coordinator] {get}
-    func  start()
-}
-
-protocol ParentCoordinator: Coordinator {
-    func childDidFinish(_ coordinator: Coordinator)
-}
-
 class AppCoordinator : Coordinator{
     private(set) var childCordinators: [Coordinator] = []
 

@@ -6,10 +6,7 @@
 //
 
 import UIKit
-protocol ChildCoordinator: Coordinator {
-    var parentCoordinator: ParentCoordinator? {get set}
-    func didFinish()
-}
+
 class AddEventCoordinator: ChildCoordinator {
     var parentCoordinator: ParentCoordinator?
     private var navController:UINavigationController
@@ -24,9 +21,8 @@ class AddEventCoordinator: ChildCoordinator {
         addEventVM.coordinator = self
         let vc : AddEventViewController = .instantiate()
         vc.vm = addEventVM
-        vc.view.backgroundColor = .primary
-        let addNavVC = UINavigationController(rootViewController: vc)
-        navController.present(addNavVC, animated: true, completion: nil)
+        let modalNavVC = UINavigationController(rootViewController: vc)
+        navController.present(modalNavVC, animated: true, completion: nil)
     }
     func didFinish(){
         parentCoordinator?.childDidFinish(self)
