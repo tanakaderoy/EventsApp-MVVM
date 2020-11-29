@@ -7,16 +7,19 @@
 
 import UIKit
 
+extension UIView: ElevatableView {}
+
 
 extension  UIView {
 
     func roundCorners(_ val: CGFloat) {
         self.layer.cornerRadius = val
+        self.clipsToBounds = true
     }
 
 
     enum Edge : CaseIterable{
-        case top,leading,trailing,bottom
+        case top,left,right,bottom
         static let all = allCases
     }
     /// Adds constraints to this `UIView` instances `superview` object to make sure this always has the same size as the superview.
@@ -33,10 +36,10 @@ extension  UIView {
                 self.bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -constant).isActive = true
             case .top:
                 self.topAnchor.constraint(equalTo: superview.topAnchor, constant: constant).isActive = true
-            case .leading:
-                self.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: constant).isActive = true
-            case .trailing:
-                self.trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -constant).isActive = true
+            case .left:
+                self.leftAnchor.constraint(equalTo: superview.leftAnchor, constant: constant).isActive = true
+            case .right:
+                self.rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -constant).isActive = true
             }
         }
 
@@ -58,9 +61,9 @@ extension  UIView {
                 self.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor, constant: -constant).isActive = true
             case .top:
                 self.topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor, constant: constant).isActive = true
-            case .leading:
+            case .left:
                 self.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor, constant: constant).isActive = true
-            case .trailing:
+            case .right:
                 self.trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor, constant: constant).isActive = true
             }
         }

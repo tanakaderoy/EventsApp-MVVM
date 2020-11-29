@@ -33,6 +33,8 @@
 		BAEBCC262573733B00139F93 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC252573733B00139F93 /* Date+Extensions.swift */; };
 		BAEBCC2B2573860200139F93 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC2A2573860200139F93 /* ImagePickerCoordinator.swift */; };
 		BAEBCC302573940400139F93 /* EventsCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC2F2573940400139F93 /* EventsCellBuilder.swift */; };
+		BAEBCC332573B03100139F93 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC322573B03100139F93 /* EventCell.swift */; };
+		BAEBCC362573B49000139F93 /* EventCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC352573B49000139F93 /* EventCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		BAEBCC252573733B00139F93 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		BAEBCC2A2573860200139F93 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
 		BAEBCC2F2573940400139F93 /* EventsCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCellBuilder.swift; sourceTree = "<group>"; };
+		BAEBCC322573B03100139F93 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		BAEBCC352573B49000139F93 /* EventCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,7 @@
 				BAEBCBFF257313B500139F93 /* EventListViewModel.swift */,
 				BAEBCC052573188500139F93 /* AddEventViewModel.swift */,
 				BAEBCC1225733A3200139F93 /* TitleSubtitleCellViewModel.swift */,
+				BAEBCC352573B49000139F93 /* EventCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -195,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				BAEBCC0F2573324300139F93 /* TitleSubtitleCell.swift */,
+				BAEBCC322573B03100139F93 /* EventCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -281,6 +287,8 @@
 				BAEBCC262573733B00139F93 /* Date+Extensions.swift in Sources */,
 				BAEBCBE32573051A00139F93 /* EditEventCoordinator.swift in Sources */,
 				BAEBCC09257318B200139F93 /* AddEventViewController.swift in Sources */,
+				BAEBCC332573B03100139F93 /* EventCell.swift in Sources */,
+				BAEBCC362573B49000139F93 /* EventCellViewModel.swift in Sources */,
 				BAEBCBE22573051A00139F93 /* AddEventCoordinator.swift in Sources */,
 				BAEBCBEF2573091700139F93 /* UIColor+Extension.swift in Sources */,
 				BAEBCBFC25730DE400139F93 /* EventModel.swift in Sources */,

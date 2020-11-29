@@ -42,20 +42,39 @@ protocol TitleSubtitleCellViewModelProtocol: BaseCellViewModel {
     var image: UIImage?  {get set}
 }
 
+protocol EventCellModel: BaseCellViewModel {
+//    var onTap: ()->() {get set}
+    var name: String {get set}
+    var dateRemaining: String {get set}
+    var date: String {get set}
+    var image: UIImage {get set}
+}
+
 
 protocol TableViewViewModel {
+    var onUpdate:  ()->(){get set}
     func numberOfRowsin(_ section: Int) -> Int
     func cellForRowAtIndexPath(_ indexPath:IndexPath) -> BaseCell
 }
 
 protocol AddEventViewViewModel: TableViewViewModel {
     var title: String {get set}
-    var onUpdate:  ()->(){get set}
     var coordinator: ChildCoordinatorWithLifeCycle? {get set}
     func tappedDone()
     var cells: [AddEventCell] {get set}
     var cellBuilder:EventsCellBuilder {get set}
     var coreDataManager: CoreDataManager {get set}
+}
+
+protocol EventListViewViewModel: TableViewViewModel {
+    var coordinator: EventListCoordinator? {get set}
+    var title:String {get}
+    var cells: [EventListCell] {get set}
+    var coreDataManager: CoreDataManager {get set}
+    func viewDidLoad()
+
+
+    func tappedAddEvent()
 }
 
 protocol ChildCoordinatorWithLifeCycle: ChildCoordinator, CoordinatorWithLifeCycle {
@@ -86,3 +105,25 @@ enum AddEventCell: BaseCell {
     case titleSubtitle(TitleSubtitleCellViewModel)
 }
 
+enum EventListCell: BaseCell {
+    case eventCell(EventCellViewModel)
+}
+
+
+
+
+ protocol ElevatableView {
+    func elevate(elevation: Double)
+}
+
+ extension ElevatableView where Self: UIView {
+    func elevate(elevation: Double) {
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = .zero//CGSize(width: 0, height: elevation)
+        self.layer.shouldRasterize = true
+        self.layer.rasterizationScale = UIScreen.main.scale
+        self.layer.shadowRadius = elevation > 0.0 ?  CGFloat(elevation) : -CGFloat(elevation)
+        self.layer.shadowOpacity = 0.5
+    }
+}
