@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class TitleSubtitleCellViewModel: TitleSubtitleCellViewModelProtocol {
@@ -14,7 +15,8 @@ class TitleSubtitleCellViewModel: TitleSubtitleCellViewModelProtocol {
         self.subtitle = subtitle
         self.placeholder = placeholder
         self.type = type
-        self.onUpdate = onCellUpdate
+        self.onCellUpdate = onCellUpdate
+        
     }
 
 
@@ -25,8 +27,9 @@ class TitleSubtitleCellViewModel: TitleSubtitleCellViewModelProtocol {
     var subtitle:String
     var placeholder: String
     var type:  CellType
+    var image: UIImage?
 
-    var onUpdate: () -> ()
+    var onCellUpdate: () -> ()
 
 
 
@@ -37,12 +40,16 @@ class TitleSubtitleCellViewModel: TitleSubtitleCellViewModelProtocol {
 
     func update(_ date: Date){
         guard type == .date else {return}
-        subtitle = date.toFormmattedString("MM.dd.yyy")
+        subtitle = date.toFormattedString("MM.dd.yyy")
         //reload cell
-        onUpdate()
+        onCellUpdate()
         
     }
 
+    func update(_ image: UIImage){
+        self.image = image
+        self.onCellUpdate()
+    }
 
 
 

@@ -34,11 +34,12 @@ protocol BaseCellViewModel:class{
 
 }
 protocol TitleSubtitleCellViewModelProtocol: BaseCellViewModel {
-    var onUpdate: ()->() {get set}
+    var onCellUpdate: ()->() {get set}
     var title: String {get set}
     var subtitle:String {get set}
     var placeholder: String {get set}
     var type:  CellType  {get set}
+    var image: UIImage?  {get set}
 }
 
 
@@ -50,14 +51,30 @@ protocol TableViewViewModel {
 protocol AddEventViewViewModel: TableViewViewModel {
     var title: String {get set}
     var onUpdate:  ()->(){get set}
-    var coordinator: ChildCoordinator? {get set}
+    var coordinator: ChildCoordinatorWithLifeCycle? {get set}
     func tappedDone()
     var cells: [AddEventCell] {get set}
+    var cellBuilder:EventsCellBuilder {get set}
+    var coreDataManager: CoreDataManager {get set}
 }
+
+protocol ChildCoordinatorWithLifeCycle: ChildCoordinator, CoordinatorWithLifeCycle {
+}
+
+protocol ParentCoordinatorWithLifeCycle: ParentCoordinator, CoordinatorWithLifeCycle {
+}
+
+protocol CoordinatorWithLifeCycle: Coordinator {
+    func didFinish()
+}
+
+protocol ChildParentCoordinatorWithLifeCycle: ChildCoordinatorWithLifeCycle,  ParentCoordinator {
+}
+
 
 protocol ChildCoordinator: Coordinator {
     var parentCoordinator: ParentCoordinator? {get set}
-    func didFinish()
+
 }
 
 protocol BaseCell {

@@ -67,6 +67,7 @@ class TitleSubtitleCell: UITableViewCell, ProgramaticView, CellView {
     func update<T>(with viewModel: T) where T : BaseCellViewModel {
         guard let vm = viewModel as? TitleSubtitleCellViewModel else{return}
         self.viewModel = vm
+        selectionStyle = .none
         titleLabel.text = vm.title
         subtitleTextField.text = vm.subtitle
         subtitleTextField.placeholder = vm.placeholder
@@ -75,6 +76,7 @@ class TitleSubtitleCell: UITableViewCell, ProgramaticView, CellView {
         photoImageView.isHidden  = vm.type != .image
         subtitleTextField.isHidden = vm.type == .image
         vStack.spacing = vm.type == .image ? 15 : vStack.spacing
+        photoImageView.image = vm.image
     }
 
     //    func update(with viewModel: BaseCellViewModel) {

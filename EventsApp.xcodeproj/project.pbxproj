@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		BAEBCBC02572FBEC00139F93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCBBF2572FBEC00139F93 /* AppDelegate.swift */; };
 		BAEBCBC22572FBEC00139F93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCBC12572FBEC00139F93 /* SceneDelegate.swift */; };
-		BAEBCBC42572FBEC00139F93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCBC32572FBEC00139F93 /* ViewController.swift */; };
 		BAEBCBC72572FBEC00139F93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEBCBC52572FBEC00139F93 /* Main.storyboard */; };
 		BAEBCBC92572FBF000139F93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAEBCBC82572FBF000139F93 /* Assets.xcassets */; };
 		BAEBCBCC2572FBF000139F93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEBCBCA2572FBF000139F93 /* LaunchScreen.storyboard */; };
@@ -32,13 +31,14 @@
 		BAEBCC1325733A3200139F93 /* TitleSubtitleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC1225733A3200139F93 /* TitleSubtitleCellViewModel.swift */; };
 		BAEBCC202573446200139F93 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC1F2573446200139F93 /* Protocols.swift */; };
 		BAEBCC262573733B00139F93 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC252573733B00139F93 /* Date+Extensions.swift */; };
+		BAEBCC2B2573860200139F93 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC2A2573860200139F93 /* ImagePickerCoordinator.swift */; };
+		BAEBCC302573940400139F93 /* EventsCellBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCC2F2573940400139F93 /* EventsCellBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BAEBCBBC2572FBEC00139F93 /* EventsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEBCBBF2572FBEC00139F93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAEBCBC12572FBEC00139F93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BAEBCBC32572FBEC00139F93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BAEBCBC62572FBEC00139F93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BAEBCBC82572FBF000139F93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BAEBCBCB2572FBF000139F93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,6 +62,8 @@
 		BAEBCC1225733A3200139F93 /* TitleSubtitleCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleSubtitleCellViewModel.swift; sourceTree = "<group>"; };
 		BAEBCC1F2573446200139F93 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		BAEBCC252573733B00139F93 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		BAEBCC2A2573860200139F93 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
+		BAEBCC2F2573940400139F93 /* EventsCellBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsCellBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +103,7 @@
 				BAEBCBFE257313A800139F93 /* ViewModels */,
 				BAEBCBF625730CE100139F93 /* Manager */,
 				BAEBCBF125730C3D00139F93 /* Models */,
-				BAEBCBC32572FBEC00139F93 /* ViewController.swift */,
+				BAEBCC2D257393D700139F93 /* Factory */,
 				BAEBCBEA2573069500139F93 /* Extensions */,
 				BAEBCBE5257305E400139F93 /* Controllers */,
 				BAEBCBD82572FD6D00139F93 /* Coordinators */,
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				BAEBCBD52572FD6200139F93 /* AppCoordinator.swift */,
+				BAEBCC2A2573860200139F93 /* ImagePickerCoordinator.swift */,
 				BAEBCBDB2572FFB700139F93 /* EventListCoordinator.swift */,
 				BAEBCBDF2573051900139F93 /* AddEventCoordinator.swift */,
 				BAEBCBE02573051A00139F93 /* EditEventCoordinator.swift */,
@@ -194,6 +197,14 @@
 				BAEBCC0F2573324300139F93 /* TitleSubtitleCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		BAEBCC2D257393D700139F93 /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				BAEBCC2F2573940400139F93 /* EventsCellBuilder.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,12 +285,13 @@
 				BAEBCBEF2573091700139F93 /* UIColor+Extension.swift in Sources */,
 				BAEBCBFC25730DE400139F93 /* EventModel.swift in Sources */,
 				BAEBCBF425730C6400139F93 /* EventsApp.xcdatamodeld in Sources */,
-				BAEBCBC42572FBEC00139F93 /* ViewController.swift in Sources */,
+				BAEBCC2B2573860200139F93 /* ImagePickerCoordinator.swift in Sources */,
 				BAEBCBE7257305F400139F93 /* EventListViewController.swift in Sources */,
 				BAEBCC202573446200139F93 /* Protocols.swift in Sources */,
 				BAEBCC102573324300139F93 /* TitleSubtitleCell.swift in Sources */,
 				BAEBCBF825730CF900139F93 /* CoreDataManager.swift in Sources */,
 				BAEBCC062573188500139F93 /* AddEventViewModel.swift in Sources */,
+				BAEBCC302573940400139F93 /* EventsCellBuilder.swift in Sources */,
 				BAEBCBC02572FBEC00139F93 /* AppDelegate.swift in Sources */,
 				BAEBCC0D25732FA900139F93 /* UIView+Extensions.swift in Sources */,
 				BAEBCC1325733A3200139F93 /* TitleSubtitleCellViewModel.swift in Sources */,
