@@ -12,6 +12,17 @@ extension UIView: ElevatableView {}
 
 extension  UIView {
 
+    func blurBackground(style: UIBlurEffect.Style  = .dark, alpha:  CGFloat = 0.4   ) {
+        let blurEffect = UIBlurEffect(style: style)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.backgroundColor = .black
+        blurEffectView.alpha = alpha
+
+        blurEffectView.frame = self.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.addSubview(blurEffectView)
+    }
+
     func roundCorners(_ val: CGFloat) {
         self.layer.cornerRadius = val
         self.clipsToBounds = true

@@ -37,6 +37,7 @@ class AddEventCoordinator: ChildParentCoordinatorWithLifeCycle {
     }
 
     func didFinishSaveEvent(){
+        ( parentCoordinator as? EventListCoordinator)?.onSaveEvent()
         navController.dismiss(animated: true, completion: nil)
     }
 

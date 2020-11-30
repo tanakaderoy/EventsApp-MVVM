@@ -44,10 +44,13 @@ protocol TitleSubtitleCellViewModelProtocol: BaseCellViewModel {
 
 protocol EventCellModel: BaseCellViewModel {
 //    var onTap: ()->() {get set}
-    var name: String {get set}
-    var dateRemaining: String {get set}
-    var date: String {get set}
-    var image: UIImage {get set}
+    var name: String {get}
+    var timeRemainingString: [String] {get}
+    var date: String {get}
+//    var image: UIImage? {get}
+    var event: Event {get  set}
+    var onCellUpdate: ()->() {get set}
+    func loadImage(completion: @escaping UIImageCompletion)
 }
 
 
@@ -72,7 +75,7 @@ protocol EventListViewViewModel: TableViewViewModel {
     var cells: [EventListCell] {get set}
     var coreDataManager: CoreDataManager {get set}
     func viewDidLoad()
-
+func reloadData()
 
     func tappedAddEvent()
 }

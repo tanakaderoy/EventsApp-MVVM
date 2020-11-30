@@ -21,12 +21,21 @@ extension Date {
         dateFormatter.dateFormat = format
         return dateFormatter.date(from:stringDate)
     }
-
+    
     func toFormattedString(_ format:String = "EEEE, MMM d, yyy") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
+    }
+
+    static func getTimeRemaining(until endDate:  Date) -> String{
+        let date = Date()
+        let dateComponentsFormatter = DateComponentsFormatter()
+        dateComponentsFormatter.allowedUnits = [.year,.month,.weekOfMonth,.day]
+        dateComponentsFormatter.unitsStyle =  .full
+        return (dateComponentsFormatter.string(from: date, to: endDate) ?? "")
+
     }
 
 }

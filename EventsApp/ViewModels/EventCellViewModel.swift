@@ -10,19 +10,47 @@ import UIKit
 
 
 class EventCellViewModel: EventCellModel {
-    var name: String
 
-    var dateRemaining: String
+    private static let imageCache = NSCache<NSString,UIImage>()
+    private var imageQueue = DispatchQueue(label: "imageQueue", qos: .background)
+    private var cacheKey: String  {
+        event.objectID.description
+    }
+    var name: String{
+        event.name ?? ""
+    }
 
-    var date: String
+    var timeRemainingString: [String]{
+        let timeRem = Date.getTimeRemaining(until: event.date ??  Date())
+        return timeRem.components(separatedBy: ",")
+    }
 
-    var image: UIImage
+    var date: String {
+        event.date?.toFormattedString("MMM dd yyy") ?? ""
+    }
+    var onCellUpdate: () -> ()  = {}
 
-    init(name: String, dateRemaining: String, date: String, image: UIImage) {
-        self.name = name
-        self.dateRemaining = dateRemaining
-        self.date = date
-        self.image = image
+    var event:Event
+
+    init(_ event:  Event) {
+        self.event = event
+    }
+
+    func loadImage(completion: @escaping(UIImage) -> ()) {
+        guard let eventImage = event.image  else {return}
+        if let img = EventCellViewModel.imageCache.object(forKey:cacheKey as NSString) {
+            completion(img)
+        }else{
+            imageQueue.async { [weak self] in
+
+                let img = UIImage(data: eventImage) ?? UIImage()
+                EventCellViewModel.imageCache.setObject(img, forKey: (self?.cacheKey ?? "") as NSString)
+                DispatchQueue.main.async {
+                    completion(img)
+                }
+            }
+        }
+
     }
 
 

@@ -35,10 +35,13 @@ class EventListViewModel: EventListViewViewModel {
     }
 
     func viewDidLoad() {
+       reloadData()
+    }
+
+    func reloadData() {
         cells = coreDataManager.fetchEvents().map({
-            EventListCell.eventCell(EventCellViewModel(name: $0.name ?? "Bhristmas", dateRemaining: "adsad", date: ($0.date?.toFormattedString()) ?? "", image: UIImage(data: $0.image ?? Data()) ?? #imageLiteral(resourceName: "chelsea")))
+            EventListCell.eventCell(EventCellViewModel($0))
         })
         onUpdate()
     }
-
 }

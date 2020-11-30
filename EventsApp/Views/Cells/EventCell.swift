@@ -10,13 +10,9 @@ import UIKit
 class EventCell: UITableViewCell, ProgramaticView, CellView {
     static let cellID = "EventListCell"
     let nameLabel = UILabel()
+    let containerView = UIView()
     let vStack = UIStackView()
-    let yearLabel = UILabel()
-    let monthLabel = UILabel()
-
-    let weeksLabel = UILabel()
-
-    let daysLabel = UILabel()
+    let timeRemainingLabels = [UILabel(),UILabel(), UILabel(), UILabel()]
 
     let dateLabel = UILabel()
     let backgroundImageView  = UIImageView()
@@ -38,28 +34,30 @@ class EventCell: UITableViewCell, ProgramaticView, CellView {
     func setUpViews() {
         vStack.axis  = .vertical
         vStack.alignment = .trailing
-        [yearLabel,monthLabel,weeksLabel,daysLabel,dateLabel].forEach({$0.font =  .systemFont(ofSize: 22, weight: .medium)
+        (timeRemainingLabels + [dateLabel]).forEach({$0.font =  .systemFont(ofSize: 22, weight: .medium)
             $0.textColor  =  .white
         })
         nameLabel.font = .systemFont(ofSize: 28, weight: .bold)
         nameLabel.textColor = .white
+        backgroundImageView.blurBackground(style: .light, alpha: 0.2)
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.clipsToBounds  = true
     }
 
     func setUpHierachy() {
-let v = UIView()
-        contentView.addSubview(v)
-        v.bindFrameToSuperviewBounds(Edge.all,  constant: 16)
+        contentView.addSubview(containerView)
+        containerView.bindFrameToSuperviewBounds(Edge.all,  constant: 16)
 
-        v.addSubview(backgroundImageView)
-        v.roundCorners(10)
-        v.elevate(elevation: 10)
-        v.addSubview(vStack)
-        [yearLabel,monthLabel].forEach({
+        containerView.addSubview(backgroundImageView)
+        containerView.roundCorners(10)
+        containerView.elevate(elevation: 10)
+        containerView.addSubview(vStack)
+        timeRemainingLabels.forEach({
             vStack.addArrangedSubview($0)
         })
         vStack.addArrangedSubview(UIView())
         vStack.addArrangedSubview(dateLabel)
-        v.addSubview(nameLabel)
+        containerView.addSubview(nameLabel)
     }
     
     func setUpLayout() {
@@ -79,11 +77,13 @@ let v = UIView()
 
     func update<T>(with viewModel: T) where T : BaseCellViewModel {
         guard let viewModel = viewModel as? EventCellViewModel else  {return}
-        [yearLabel,monthLabel,weeksLabel,daysLabel].forEach({
-            $0.text = "! Jan Mon"
+        viewModel.timeRemainingString.enumerated().forEach({
+            timeRemainingLabels[$0.offset].text = $0.element
         })
         dateLabel.text = viewModel.date
         nameLabel.text = viewModel.name
-        backgroundImageView.image = viewModel.image
+        viewModel.loadImage {[weak self] (img) in
+            self?.backgroundImageView.image = img
+        }
     }
 }

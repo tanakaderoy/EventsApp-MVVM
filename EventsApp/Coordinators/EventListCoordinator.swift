@@ -25,6 +25,7 @@ class EventListCoordinator: ParentCoordinator {
     func start() {
         let eventListVC: EventListViewController = .instantiate()
         let vm = EventListViewModel(coreDataManager: CoreDataManager.shared)
+        onSaveEvent = vm.reloadData
         vm.coordinator = self
         eventListVC.viewModel = vm
         navController.setViewControllers([eventListVC], animated: false)
@@ -35,6 +36,8 @@ class EventListCoordinator: ParentCoordinator {
         childCordinators.append(addEventCoord)
         addEventCoord.start()
     }
+
+    var onSaveEvent: ()->() = {}
     
     
 }
