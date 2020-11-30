@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA82F21F2574C8F900161867 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA82F21E2574C8F900161867 /* UIImage+Extensions.swift */; };
+		BA82F2222574D2B400161867 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA82F2212574D2B400161867 /* EventDetailViewController.swift */; };
+		BA82F2252574D4DF00161867 /* EventDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA82F2242574D4DF00161867 /* EventDetailViewModel.swift */; };
 		BAEBCBC02572FBEC00139F93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCBBF2572FBEC00139F93 /* AppDelegate.swift */; };
 		BAEBCBC22572FBEC00139F93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBCBC12572FBEC00139F93 /* SceneDelegate.swift */; };
 		BAEBCBC72572FBEC00139F93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAEBCBC52572FBEC00139F93 /* Main.storyboard */; };
@@ -38,6 +41,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BA82F21E2574C8F900161867 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		BA82F2212574D2B400161867 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		BA82F2242574D4DF00161867 /* EventDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewModel.swift; sourceTree = "<group>"; };
 		BAEBCBBC2572FBEC00139F93 /* EventsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EventsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEBCBBF2572FBEC00139F93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BAEBCBC12572FBEC00139F93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 			children = (
 				BAEBCBE6257305F400139F93 /* EventListViewController.swift */,
 				BAEBCC08257318B200139F93 /* AddEventViewController.swift */,
+				BA82F2212574D2B400161867 /* EventDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -156,6 +163,7 @@
 				BAEBCBEE2573091700139F93 /* UIColor+Extension.swift */,
 				BAEBCC0C25732FA900139F93 /* UIView+Extensions.swift */,
 				BAEBCC252573733B00139F93 /* Date+Extensions.swift */,
+				BA82F21E2574C8F900161867 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -184,6 +192,7 @@
 				BAEBCC052573188500139F93 /* AddEventViewModel.swift */,
 				BAEBCC1225733A3200139F93 /* TitleSubtitleCellViewModel.swift */,
 				BAEBCC352573B49000139F93 /* EventCellViewModel.swift */,
+				BA82F2242574D4DF00161867 /* EventDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -301,11 +310,14 @@
 				BAEBCC062573188500139F93 /* AddEventViewModel.swift in Sources */,
 				BAEBCC302573940400139F93 /* EventsCellBuilder.swift in Sources */,
 				BAEBCBC02572FBEC00139F93 /* AppDelegate.swift in Sources */,
+				BA82F2252574D4DF00161867 /* EventDetailViewModel.swift in Sources */,
 				BAEBCC0D25732FA900139F93 /* UIView+Extensions.swift in Sources */,
 				BAEBCC1325733A3200139F93 /* TitleSubtitleCellViewModel.swift in Sources */,
 				BAEBCC00257313B500139F93 /* EventListViewModel.swift in Sources */,
+				BA82F2222574D2B400161867 /* EventDetailViewController.swift in Sources */,
 				BAEBCBC22572FBEC00139F93 /* SceneDelegate.swift in Sources */,
 				BAEBCBE12573051A00139F93 /* EventDetailCoordinator.swift in Sources */,
+				BA82F21F2574C8F900161867 /* UIImage+Extensions.swift in Sources */,
 				BAEBCBEC257306A800139F93 /* UIViewController+Extension.swift in Sources */,
 				BAEBCBDC2572FFB700139F93 /* EventListCoordinator.swift in Sources */,
 			);

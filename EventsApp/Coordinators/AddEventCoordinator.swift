@@ -11,12 +11,12 @@ class AddEventCoordinator: ChildParentCoordinatorWithLifeCycle {
 
 
     var parentCoordinator: ParentCoordinator?
-    private var navController:UINavigationController
+    var navigationController: UINavigationController
     private var modalNavVC: UINavigationController?
     private var completion:  UIImageCompletion =  { _ in }
 
-    init(navController: UINavigationController){
-        self.navController = navController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     private(set) var  childCordinators: [Coordinator] = []
 
@@ -29,7 +29,7 @@ class AddEventCoordinator: ChildParentCoordinatorWithLifeCycle {
         vc.vm = addEventVM
         modalNavVC = UINavigationController(rootViewController: vc)
         if let modalNavVC = modalNavVC{
-            navController.present(modalNavVC, animated: true, completion: nil)
+            navigationController.present(modalNavVC, animated: true, completion: nil)
         }
     }
     func didFinish(){
@@ -38,12 +38,12 @@ class AddEventCoordinator: ChildParentCoordinatorWithLifeCycle {
 
     func didFinishSaveEvent(){
         ( parentCoordinator as? EventListCoordinator)?.onSaveEvent()
-        navController.dismiss(animated: true, completion: nil)
+        navigationController.dismiss(animated: true, completion: nil)
     }
 
     func showImagePicker(_ completion:  @escaping UIImageCompletion){
         guard let modalNavVC = modalNavVC else {return}
-        let imagePickerCoordinator = ImagePickerCoordinator(navController: modalNavVC)
+        let imagePickerCoordinator = ImagePickerCoordinator(navigationController: modalNavVC)
         self.completion = completion
         imagePickerCoordinator.parentCoordinator = self
         childCordinators.append(imagePickerCoordinator)

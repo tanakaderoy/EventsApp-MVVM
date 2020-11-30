@@ -9,9 +9,9 @@ import UIKit
 
 class ImagePickerCoordinator: NSObject, ChildCoordinatorWithLifeCycle {
     var parentCoordinator: ParentCoordinator?
-    let navController: UINavigationController
-    init(navController: UINavigationController){
-        self.navController = navController
+    var navigationController: UINavigationController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
     }
     func didFinish() {
 
@@ -22,7 +22,7 @@ class ImagePickerCoordinator: NSObject, ChildCoordinatorWithLifeCycle {
     func start() {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate =  self
-        navController.present(imagePickerController, animated: true, completion: nil)
+        navigationController.present(imagePickerController, animated: true, completion: nil)
     }
 
 

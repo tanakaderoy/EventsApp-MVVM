@@ -76,6 +76,7 @@ class EventCell: UITableViewCell, ProgramaticView, CellView {
     }
 
     func update<T>(with viewModel: T) where T : BaseCellViewModel {
+        timeRemainingLabels.forEach({$0.text  =  ""})
         guard let viewModel = viewModel as? EventCellViewModel else  {return}
         viewModel.timeRemainingString.enumerated().forEach({
             timeRemainingLabels[$0.offset].text = $0.element

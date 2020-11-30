@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 
 
@@ -18,6 +19,7 @@ protocol ProgramaticView {
 }
 
 protocol Coordinator: class {
+    var navigationController: UINavigationController {get set}
     var childCordinators: [Coordinator] {get}
     func  start()
 }
@@ -43,10 +45,11 @@ protocol TitleSubtitleCellViewModelProtocol: BaseCellViewModel {
 }
 
 protocol EventCellModel: BaseCellViewModel {
-//    var onTap: ()->() {get set}
+    var onSelect: (NSManagedObjectID)->() {get set}
     var name: String {get}
     var timeRemainingString: [String] {get}
     var date: String {get}
+    func didSelect()
 //    var image: UIImage? {get}
     var event: Event {get  set}
     var onCellUpdate: ()->() {get set}
@@ -60,13 +63,25 @@ protocol TableViewViewModel {
     func cellForRowAtIndexPath(_ indexPath:IndexPath) -> BaseCell
 }
 
-protocol AddEventViewViewModel: TableViewViewModel {
+protocol AddEventViewViewModel: TableViewViewModel, BaseViewViewModel {
     var title: String {get set}
     var coordinator: ChildCoordinatorWithLifeCycle? {get set}
     func tappedDone()
     var cells: [AddEventCell] {get set}
     var cellBuilder:EventsCellBuilder {get set}
+}
+
+protocol BaseViewViewModel {
     var coreDataManager: CoreDataManager {get set}
+}
+
+protocol EventDetailViewViewModel: BaseViewViewModel {
+    var backgroundImage: UIImage? {get}
+    var event: Event? {get set}
+    var onUpdate:  ()->(){get set}
+    var eventId: NSManagedObjectID {get set}
+    func viewDidLoad()
+
 }
 
 protocol EventListViewViewModel: TableViewViewModel {
@@ -75,7 +90,8 @@ protocol EventListViewViewModel: TableViewViewModel {
     var cells: [EventListCell] {get set}
     var coreDataManager: CoreDataManager {get set}
     func viewDidLoad()
-func reloadData()
+    func reloadData()
+    func didSelectRow(at indexPath: IndexPath)
 
     func tappedAddEvent()
 }

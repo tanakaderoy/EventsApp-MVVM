@@ -41,7 +41,7 @@ class AddEventViewModel: AddEventViewViewModel{
     var title = "Add"
     var onUpdate:  ()->()  =  {}
     var coreDataManager: CoreDataManager
-
+//Weak to stop a retain cycle because no strong reference
     weak var coordinator: ChildCoordinatorWithLifeCycle?
 
     func tappedDone() {
@@ -70,8 +70,6 @@ class AddEventViewModel: AddEventViewViewModel{
             }
         }
     }
-
-
 }
 
 

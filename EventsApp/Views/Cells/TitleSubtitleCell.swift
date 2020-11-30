@@ -35,6 +35,8 @@ class TitleSubtitleCell: UITableViewCell, ProgramaticView, CellView {
         datePicker.preferredDatePickerStyle = .wheels
         toolBar.setItems([doneButton], animated: false)
         photoImageView.backgroundColor =  .fromRGB(0, 0, 0, 0.4)
+        photoImageView.contentMode = .scaleAspectFill
+        photoImageView.clipsToBounds = true
         photoImageView.roundCorners(10)
 
 

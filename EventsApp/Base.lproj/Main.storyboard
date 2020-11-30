@@ -38,6 +38,21 @@
             </objects>
             <point key="canvasLocation" x="688" y="99"/>
         </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="Sxo-Q7-yBM">
+            <objects>
+                <viewController storyboardIdentifier="EventDetailViewController" id="KPm-u4-Y6E" customClass="EventDetailViewController" customModule="EventsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NGd-5M-ga1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="S8l-C3-lfJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FPe-00-muc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1425" y="100"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
