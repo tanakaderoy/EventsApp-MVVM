@@ -49,6 +49,7 @@ protocol EventCellModel: BaseCellViewModel {
     var name: String {get}
     var timeRemainingString: [String] {get}
     var date: String {get}
+    var timeRemainingViewModel: TimeRemainingViewModel? {get}
     func didSelect()
 //    var image: UIImage? {get}
     var event: Event {get  set}
@@ -76,11 +77,14 @@ protocol BaseViewViewModel {
 }
 
 protocol EventDetailViewViewModel: BaseViewViewModel {
+    var coordinator: EventDetailCoordinator? {get set}
     var backgroundImage: UIImage? {get}
     var event: Event? {get set}
     var onUpdate:  ()->(){get set}
     var eventId: NSManagedObjectID {get set}
+    var timeRemainingViewModel: TimeRemainingViewModel? {get}
     func viewDidLoad()
+    func viewDidDisappear()
 
 }
 

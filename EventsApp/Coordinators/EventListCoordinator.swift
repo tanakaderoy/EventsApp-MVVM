@@ -41,6 +41,7 @@ var navigationController: UINavigationController
 
     func onSelect(_ id: NSManagedObjectID){
         let eventDetailCoordinator = EventDetailCoordinator(navigationController: navigationController, eventId: id)
+        eventDetailCoordinator.parentCoordinator = self
         childCordinators.append(eventDetailCoordinator)
         eventDetailCoordinator.start()
 

@@ -12,7 +12,7 @@ class EventCell: UITableViewCell, ProgramaticView, CellView {
     let nameLabel = UILabel()
     let containerView = UIView()
     let vStack = UIStackView()
-    let timeRemainingLabels = [UILabel(),UILabel(), UILabel(), UILabel()]
+    let timeRemainingStackView = TimeRemainingStackView()
 
     let dateLabel = UILabel()
     let backgroundImageView  = UIImageView()
@@ -32,11 +32,11 @@ class EventCell: UITableViewCell, ProgramaticView, CellView {
     }
 
     func setUpViews() {
+        timeRemainingStackView.setup()
         vStack.axis  = .vertical
         vStack.alignment = .trailing
-        (timeRemainingLabels + [dateLabel]).forEach({$0.font =  .systemFont(ofSize: 22, weight: .medium)
-            $0.textColor  =  .white
-        })
+        dateLabel.font =  .systemFont(ofSize: 22, weight: .medium)
+        dateLabel.textColor  =  .white
         nameLabel.font = .systemFont(ofSize: 28, weight: .bold)
         nameLabel.textColor = .white
         backgroundImageView.blurBackground(style: .light, alpha: 0.2)
@@ -52,9 +52,7 @@ class EventCell: UITableViewCell, ProgramaticView, CellView {
         containerView.roundCorners(10)
         containerView.elevate(elevation: 10)
         containerView.addSubview(vStack)
-        timeRemainingLabels.forEach({
-            vStack.addArrangedSubview($0)
-        })
+        vStack.addArrangedSubview(timeRemainingStackView)
         vStack.addArrangedSubview(UIView())
         vStack.addArrangedSubview(dateLabel)
         containerView.addSubview(nameLabel)
@@ -76,11 +74,8 @@ class EventCell: UITableViewCell, ProgramaticView, CellView {
     }
 
     func update<T>(with viewModel: T) where T : BaseCellViewModel {
-        timeRemainingLabels.forEach({$0.text  =  ""})
         guard let viewModel = viewModel as? EventCellViewModel else  {return}
-        viewModel.timeRemainingString.enumerated().forEach({
-            timeRemainingLabels[$0.offset].text = $0.element
-        })
+        timeRemainingStackView.update(with: viewModel.timeRemainingViewModel)
         dateLabel.text = viewModel.date
         nameLabel.text = viewModel.name
         viewModel.loadImage {[weak self] (img) in

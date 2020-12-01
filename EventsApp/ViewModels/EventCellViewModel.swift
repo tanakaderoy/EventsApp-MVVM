@@ -22,6 +22,7 @@ class EventCellViewModel: EventCellModel {
         event.name ?? ""
     }
 
+
     var timeRemainingString: [String]{
         let timeRem = Date.getTimeRemaining(until: event.date ??  Date())
         return timeRem.components(separatedBy: ",")
@@ -33,6 +34,10 @@ class EventCellViewModel: EventCellModel {
     var onCellUpdate: () -> ()  = {}
 
     var event:Event
+
+    var timeRemainingViewModel: TimeRemainingViewModel? {
+        TimeRemainingViewModel(timeRemainingParts: timeRemainingString, mode: .cell)
+    }
 
     init(_ event:  Event) {
         self.event = event

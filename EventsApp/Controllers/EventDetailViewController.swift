@@ -10,12 +10,15 @@ import UIKit
 class EventDetailViewController: UIViewController {
 
     let backgroundImageView  = UIImageView()
+    let timeRemainingStackview = TimeRemainingStackView()
     let containerView = UIView()
     var viewModel: EventDetailViewModel!
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.onUpdate = {  [weak self] in
-            self?.backgroundImageView.image = self?.viewModel.backgroundImage
+            guard let self = self  else {return}
+            self.backgroundImageView.image = self.viewModel.backgroundImage
+            self.timeRemainingStackview.update(with: self.viewModel.timeRemainingViewModel)
 
         }
         viewModel.viewDidLoad()
@@ -23,6 +26,11 @@ class EventDetailViewController: UIViewController {
         setUpViews()
         setUpHierachy()
         setUpLayout()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        viewModel.viewDidDisappear()
     }
 
 
@@ -35,16 +43,23 @@ extension EventDetailViewController: ProgramaticView {
         backgroundImageView.contentMode = .scaleAspectFill
         backgroundImageView.clipsToBounds = true
         backgroundImageView.blurBackground(style: .dark, alpha: 0.3)
+        timeRemainingStackview.setup()
     }
 
     func setUpHierachy() {
         view.addSubview(containerView)
         containerView.addSubview(backgroundImageView)
+        containerView.addSubview(timeRemainingStackview)
     }
 
     func setUpLayout() {
         containerView.bindFrameToSuperviewBounds()
         backgroundImageView.bindFrameToSuperviewBounds()
+        timeRemainingStackview.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            timeRemainingStackview.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            timeRemainingStackview.centerXAnchor.constraint(equalTo: containerView.centerXAnchor)
+        ])
     }
 
 }

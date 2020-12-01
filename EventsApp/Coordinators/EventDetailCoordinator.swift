@@ -8,7 +8,7 @@ import UIKit
 import CoreData
 
 
-class EventDetailCoordinator: ChildCoordinator {
+class EventDetailCoordinator: ChildCoordinatorWithLifeCycle {
     var parentCoordinator: ParentCoordinator?
 
     var navigationController: UINavigationController
@@ -22,11 +22,15 @@ class EventDetailCoordinator: ChildCoordinator {
     func start() {
         let eventDetailViewController: EventDetailViewController = .instantiate()
         let  eventDatilViewModel = EventDetailViewModel(eventId: eventId)
+        eventDatilViewModel.coordinator = self
         eventDetailViewController.viewModel = eventDatilViewModel
         navigationController.pushViewController(eventDetailViewController, animated: true)
         //create event detail vc
         //event detail vm
         //push it ontoo nav controller
+    }
+    func didFinish() {
+        parentCoordinator?.childDidFinish(self)
     }
 
 
